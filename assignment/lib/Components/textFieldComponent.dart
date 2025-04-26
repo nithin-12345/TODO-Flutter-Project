@@ -44,7 +44,7 @@ class TaskInputField extends StatelessWidget {
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('Please enter a valid task (20 characters max)!'),
+                    content: Text('Please enter a valid task (20 characters max)'),
                   ),
                 );
               }
