@@ -16,11 +16,17 @@ class TaskListView extends StatelessWidget {
     return ListView.builder(
       itemCount: tasks.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(tasks[index]),
-          trailing: IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () => removeTask(index),
+        return Padding(
+        
+          padding: const EdgeInsets.all(10),
+          child: ListTile(
+            tileColor: Colors.grey[200],
+            
+            title: Text(tasks[index]),
+            trailing: IconButton(
+              icon: const Icon(Icons.delete),
+              onPressed: () => removeTask(index),
+            ),
           ),
         );
       },

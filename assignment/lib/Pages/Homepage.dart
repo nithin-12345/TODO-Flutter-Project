@@ -3,23 +3,7 @@ import 'package:assignment/Components/listViewComponent.dart';
 import 'package:assignment/Components/textFieldComponent.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'To-Do List',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const TodoListPage(),
-    );
-  }
-}
 
 class TodoListPage extends StatefulWidget {
   const TodoListPage({Key? key}) : super(key: key);
@@ -50,9 +34,11 @@ class _TodoListPageState extends State<TodoListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         
-        title: const Center(child: Text('To-Do List')),
+        title: const Center(child: Text('TODO LIST',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),)),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -74,11 +60,17 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                     Expanded(
                       flex: 2,
-                      child: SizedBox(
-                        width: 500,
-                        child: TaskListView(
-                          tasks: _tasks,
-                          removeTask: _removeTask,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 50),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: SizedBox(
+                            width: 450,
+                            child: TaskListView(
+                              tasks: _tasks,
+                              removeTask: _removeTask,
+                            ),
+                          ),
                         ),
                       ),
                     ),

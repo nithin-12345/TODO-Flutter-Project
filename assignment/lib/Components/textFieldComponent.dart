@@ -23,7 +23,7 @@ class TaskInputField extends StatelessWidget {
               maxLength: 20, // Added a character limit of 20
               decoration: InputDecoration(
                 labelText: 'Enter a task',
-                labelStyle: const TextStyle(color: Colors.blue),
+                labelStyle: const TextStyle(color: Colors.black),
                 border: const OutlineInputBorder(),
                 errorText: controller.text.isEmpty
                     ? 'Task cannot be empty'
@@ -37,19 +37,22 @@ class TaskInputField extends StatelessWidget {
               },
             ),
           ),
-          IconButton(
-            onPressed: () {
-              if (controller.text.isNotEmpty && controller.text.length <= 20) {
-                addTask(controller.text);
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Please enter a valid task (20 characters max)'),
-                  ),
-                );
-              }
-            },
-            icon: const Icon(Icons.add),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: IconButton(
+              onPressed: () {
+                if (controller.text.isNotEmpty && controller.text.length <= 22) {
+                  addTask(controller.text);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Please enter a valid task (20 characters max)'),
+                    ),
+                  );
+                }
+              },
+              icon: const Icon(Icons.add),
+            ),
           ),
         ],
       ),
